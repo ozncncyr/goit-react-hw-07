@@ -1,10 +1,9 @@
-import React from "react";
 import style from "./Form.module.css";
 import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { nanoid } from "nanoid";
 import { useDispatch, useSelector } from "react-redux";
-import { addContact } from "../../redux/reducers/contactsSlice";
+import { addContact } from "../../redux/contactsOps";
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.css";
 
