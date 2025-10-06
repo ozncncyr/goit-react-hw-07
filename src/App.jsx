@@ -2,18 +2,17 @@ import { useEffect } from "react";
 import ContactList from "./components/ContactList/ContactList";
 import Form from "./components/Form/Form";
 import SearchBox from "./components/SearchBox/SearchBox";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchTasks } from "redux/operations";
-import { selectError, selectIsLoading } from "redux/selectors";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchContacts } from "./redux/contactsOps";
+import { selectError, selectLoading } from "./redux/selectors";
 import "./App.css";
 
 function App() {
   const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
+  const isLoading = useSelector(selectLoading);
   const error = useSelector(selectError);
-
   useEffect(() => {
-    dispatch(fetchTasks());
+    dispatch(fetchContacts());
   }, [dispatch]);
 
   return (
