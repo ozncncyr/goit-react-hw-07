@@ -5,6 +5,8 @@ import SearchBox from "./components/SearchBox/SearchBox";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchContacts } from "./redux/contactsOps";
 import { selectError, selectLoading } from "./redux/selectors";
+import { GridLoader } from "react-spinners";
+
 import "./App.css";
 
 function App() {
@@ -20,7 +22,7 @@ function App() {
       <h1 className="App-title">Phonebook</h1>
       <Form />
       <SearchBox />
-      {isLoading && !error && <b>Request in progress...</b>}
+      {isLoading && !error && <GridLoader color="#007bff" size={30} />}
       <ContactList />
     </div>
   );
