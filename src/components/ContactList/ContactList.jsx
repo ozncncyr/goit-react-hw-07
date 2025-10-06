@@ -4,9 +4,8 @@ import { deleteContact } from "../../redux/contactsOps";
 import { selectContacts } from "../../redux/selectors";
 
 const ContactList = () => {
-  const contacts = useSelector(selectContacts);
-  console.log(contacts);
   const dispatch = useDispatch();
+  const contacts = useSelector(selectContacts);
   const handleDelete = (id) => dispatch(deleteContact(id));
 
   const numberFormat = contacts.map((contact) =>
@@ -22,7 +21,10 @@ const ContactList = () => {
               {contact.name}: {numberFormat[i]}
             </p>
             <button
-              onClick={() => handleDelete(contact.id)}
+              onClick={() => {
+                console.log(contact.id);
+                handleDelete(contact.id);
+              }}
               className={style.button}
             >
               Delete
